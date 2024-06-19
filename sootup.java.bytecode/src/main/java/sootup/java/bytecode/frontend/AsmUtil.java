@@ -61,6 +61,7 @@ public final class AsmUtil {
   private AsmUtil() {}
 
   public static final int SUPPORTED_ASM_OPCODE = Opcodes.ASM9;
+  private static int i = 0;
 
   /**
    * Initializes a class node.
@@ -75,6 +76,13 @@ public final class AsmUtil {
       ClassReader clsr = new ClassReader(sourceFileInputStream);
       clsr.accept(classNode, ClassReader.SKIP_FRAMES);
       return clsr.getClassName();
+      /*int ret = -1;
+      do {
+        byte[] b = new byte[1024];
+        ret = sourceFileInputStream.read(b);
+        // System.out.println(ret);
+      } while (ret != -1);
+      return "Foo" + i++;*/
     }
   }
 
